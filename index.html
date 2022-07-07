@@ -1,12 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Kits Gaming</title>
 </head>
 <body>
-    <script src="index.js"></script>
+  <header><h1>Kits Gamers</h1></header>
+  <table id="table-cart">
+    <thead>
+      <tr>
+        <th>Producto</th>
+        <th>Precio</th>
+        <th>-</th>
+        <th>Cantidad</th>
+        <th>+</th>
+        <th>Subtotal</th>
+      </tr>
+    </thead>
+    <tbody id="tBody"></tbody>
+  </table>
+  <div class="container-products">
+    <div class="modal">
+      <button id="close-modal">X</button>
+      <input type="text" id="new-product" placeholder="Product">
+      <input type="text" id="new-price" placeholder="Price">
+      <input type="file" name="" id="new-image">
+    </div>
+    <!-- Este Select se debe renderizar por Javascript consumiendo el objeto -->
+    <select name="" id="select-products"></select>
+    <select name="" id="filterXPrice">
+      <option value="">Select filter</option>
+      <option value="Menores a 8000">Menor a $8000</option>
+      <option value="Entre 5000 y 10000">Entre $5000 y $10000</option>
+      <option value="Mayores a 8000">Mayores a $8000</option>
+    </select>
+  </div>
+  <main id="container-cards"></main>
+  <script src="index.js"></script>
 </body>
 </html>
