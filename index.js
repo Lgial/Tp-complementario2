@@ -4,6 +4,9 @@ const kits = [
    {id:"Kit-HyperX",product: 'HyperX',price: 8000,quantity: 1,},
    {id:"Kit-Reddragon",product: 'Red-dragon',price: 5000,quantity: 1,}, 
  ];
+// ARRAY ALMACENADO
+const localSave = (product, price) => { localStorage.setItem(product, price)}
+localSave("listaProductos", JSON.stringify(kits))
 
 const containerCards = document.getElementById('container-cards');
 const selectProducts = document.getElementById('select-products');
@@ -149,7 +152,7 @@ function renderCart(product) {
       <td>${(product.quantity * product.price).toFixed(2)}</td>  
       `
       tBody.appendChild(tr);      
-
+// EVENTO
   const btnAdd = document.querySelector('.addQuantity');
     btnAdd.addEventListener('click', (event)=> {
     const productName = event.target.parentElement.parentElement.children[0].textContent;
@@ -160,3 +163,4 @@ function renderCart(product) {
     });
   })
 }  
+
