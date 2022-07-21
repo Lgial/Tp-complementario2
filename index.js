@@ -4,9 +4,26 @@ const kits = [
    {id:"Kit-HyperX",product: 'HyperX',price: 8000,quantity: 1,},
    {id:"Kit-Reddragon",product: 'Red-dragon',price: 5000,quantity: 1,}, 
  ];
+// Desestructuracion de array
+const [a, b, c, d] = kits
+console.log(a)
+console.log(b)
+console.log(c)
+console.log(d)
+
+// SPREAD ARRAY
+const kitsNuevos = [
+  {id:"Kit-MSI",product: 'MSI',price: 7000 ,quantity: 1,}, 
+  {id:"Kit-NOGANET",product: 'Logitech',price: 5000,quantity: 1,},
+  {id:"Kit-COUGAR",product: 'HyperX',price: 10000,quantity: 1,},
+];
+const kits1 = [...kits, ...kitsNuevos]
+console.log(kits1)
+
+
 // ARRAY ALMACENADO
 const localSave = (product, price) => { localStorage.setItem(product, price)}
-localSave("listaProductos", JSON.stringify(kits))
+localSave("kits", JSON.stringify(kits))
 
 const containerCards = document.getElementById('container-cards');
 const selectProducts = document.getElementById('select-products');
@@ -24,7 +41,7 @@ window.addEventListener('load', listSelect);
 selectProducts.addEventListener('change', renderCards);
 closeModal.addEventListener('click',()=> modal.style.display = 'none');
 filterXPrice.addEventListener('change', filterPoducts);
-
+// OPERADOR TERNARIO ? :
 function filterPoducts(event) {
   const responseFilter = event.target.value === 'Menores a 8000'
   ? kits.filter( kit => kit.price < 8000)
